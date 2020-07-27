@@ -1,0 +1,25 @@
+.preview-links {
+  background-color: white;
+}
+
+.preview-links a {
+  display: block;
+}
+
+.preview-links a::after {
+  speak: none;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-bottom: .25rem;
+  margin-left: .5em;
+  padding-left: .125em;
+  border-radius: .155rem;
+  border-color: transparent transparent currentcolor currentcolor;
+  border-style: solid;
+  border-width: .09rem;
+  font-size: .625rem;
+  line-height: .5em;
+  vertical-align: text-bottom;
+  content: "\2197\fe0e";
+}
