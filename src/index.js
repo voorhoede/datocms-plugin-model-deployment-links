@@ -1,5 +1,8 @@
 import './style.scss';
 
+/**
+ * @see https://www.datocms.com/docs/content-management-api/resources/build_trigger/instances
+ */
 function getBuildTriggers({ datoApiToken }) {
   return fetch('https://site-api.datocms.com/build-triggers', {
     headers: {
@@ -26,6 +29,9 @@ function createLink({ text, url }) {
   return link;
 }
 
+/**
+ * @see https://www.datocms.com/docs/building-plugins/sdk-reference
+ */
 function startPlugin(plugin) {
   plugin.startAutoResizer();
 
@@ -37,12 +43,16 @@ function startPlugin(plugin) {
   const container = createContainer();
   const gettingBuildTriggers = getBuildTriggers({ datoApiToken });
 
+  function getFieldValue(fieldKey) {
+    return plugin.getFieldValue(fieldKey, plugin.locale) || plugin.getFieldValue(fieldKey);
+  }
+
   function getUrlPath() {
     return urlPattern.replace(paramPattern, (param) => {
       const paramName = param.substring(1, param.length - 2).trim();
       const paramValue = (paramName === 'locale')
         ? plugin.locale
-        : plugin.getFieldValue(paramName);
+        : getFieldValue(paramName);
       return paramValue;
     });
   }
