@@ -37,9 +37,11 @@ function startPlugin(plugin) {
 
   const { urlPattern } = plugin.parameters.instance;
   const { datoApiToken } = plugin.parameters.global;
+  const isMultiLocale = (plugin.site.attributes.locales.length > 1);
   const paramPattern = /({\s?[0-9a-zA-Z]+\s?})/g;
   const paramFields = urlPattern.match(paramPattern)
     .map(param => param.substring(1, param.length - 2).trim());
+
   const container = createContainer();
   const gettingBuildTriggers = getBuildTriggers({ datoApiToken });
 
@@ -77,6 +79,14 @@ function startPlugin(plugin) {
   paramFields.forEach((paramField) => {
     plugin.addFieldChangeListener(paramField, () => updateLinks());
   });
+
+  if (isMultiLocale) {
+    let currentLocale = plugin.locale;
+    setInterval(() => {
+      if (currentLocale !== plugin.locale) updateLinks();
+      currentLocale = plugin.locale;
+    }, 1000);
+  }
 }
 
 window.DatoCmsPlugin.init(startPlugin);

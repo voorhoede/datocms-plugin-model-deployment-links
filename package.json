@@ -1,8 +1,8 @@
 {
   "name": "datocms-plugin-preview-links",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://github.com/voorhoede/datocms-plugin-preview-links",
-  "version": "0.0.1",
   "description": "Sidebar widget with configurable links to preview a specific item",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,17 @@
     "lint": "eslint \"./src/*.{js,jsx}\"",
     "test": "echo 1"
   },
-  "keywords": ["datocms","datocms-plugin","sidebar","json-field","preview links"],
-  "files": ["dist", "docs"],
+  "keywords": [
+    "datocms",
+    "datocms-plugin",
+    "sidebar",
+    "json-field",
+    "preview links"
+  ],
+  "files": [
+    "dist",
+    "docs"
+  ],
   "author": "De Voorhoede (https://www.voorhoede.nl/)",
   "license": "MIT",
   "datoCmsPlugin": {
@@ -23,43 +32,46 @@
     "coverImage": "docs/cover.png",
     "entryPoint": "dist/index.html",
     "pluginType": "sidebar",
-    "fieldTypes": ["json"],
-    "parameters": {
-    "global": [
-      {
-        "id": "developmentMode",
-        "label": "Development mode",
-        "type": "boolean",
-        "required": true,
-        "default": false,
-        "hint": "Shows debug messages in console"
-      },
-      {
-        "id": "datoApiToken",
-        "label": "DatoCMS API Token",
-        "type": "string",
-        "required": true,
-        "default": false,
-        "hint": "The DatoCMS API read-only token to use to fetch the publish environments"
-      }
+    "fieldTypes": [
+      "json"
     ],
-    "instance": [
-      {
-        "id": "urlPattern",
-        "label": "URL pattern",
-        "type": "string",
-        "required": true,
-        "default": "/{ locale }/articles/{ slug }",
-        "hint": "{ fieldKey } will be replaced with item values, { locale } is currently edited locale"
-      }
-    ]
-  }
+    "parameters": {
+      "global": [
+        {
+          "id": "developmentMode",
+          "label": "Development mode",
+          "type": "boolean",
+          "required": true,
+          "default": false,
+          "hint": "Shows debug messages in console"
+        },
+        {
+          "id": "datoApiToken",
+          "label": "DatoCMS API Token",
+          "type": "string",
+          "required": true,
+          "default": false,
+          "hint": "The DatoCMS API read-only token to use to fetch the publish environments"
+        }
+      ],
+      "instance": [
+        {
+          "id": "urlPattern",
+          "label": "URL pattern",
+          "type": "string",
+          "required": true,
+          "default": "/{ locale }/articles/{ slug }",
+          "hint": "{ fieldKey } will be replaced with item values, { locale } is currently edited locale"
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
     "@babel/core": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/register": "^7.0.0-beta.54", "babel-eslint": "^8.2.6",
+    "@babel/register": "^7.0.0-beta.54",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.0-beta",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
