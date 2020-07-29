@@ -1,51 +1,67 @@
-# Preview Links DatoCMS plugin
+# DatoCMS plugin: Model Deployment Links
 
-**Sidebar widget with configurable links to preview a specific item.**
+**This DatoCMS plugin adds a sidebar widget with links to deployments (build triggers) _per model with configurable url path_ (e.g. `/{ locale }/blog/{ slug }`), so your editors can easily view the item they are editing.**
+
+![](docs/sidebar-widget-links.jpg)
+
+## Features
+
+* Supports customisable URLs per model in your CMS.
+* Supports single and multi-language instances.
+* Supports multiple deployment environments (build triggers).
+
+## Background
+
+By default DatoCMS already links to your depoyment environments in the main menu:
+
+![](docs/deployment-links-in-main-menu.jpg)
+
+These items link to the **Website frontend URL** you entered for the related build trigger:
+
+![](docs/build-trigger-settings.jpg)
+
+This plugin adds links to **model-specific URLs** on those websites:
+
+![](docs/sidebar-widget-links.jpg)
+
+The sidebar shows a link for each deployment environment. The URL is based on the form values of the item being edited and optionally the current locale.
+
+This enables your editors to directly view the item they are editing.
 
 ## Configuration
 
-[Describe/screenshot any global/instance parameters this plugin requires]
+First add this plugin via DatoCMS Settings > Plugins > Add (`/admin/plugins/new`).
 
-## Development
+### Global plugin settings
 
-Install all the project dependencies with:
+Then enter the DatoCMS API read-only token used to fetch this deployment environments (build triggers):
 
-```bash
-yarn install
-```
+![](docs/global-plugin-settings.jpg)
 
-Add this plugin in development mode to one of your DatoCMS project with:
+This token is available via Settings > API Tokens > Read-only API token (`/admin/access_tokens/`).
 
-```bash
-yarn addToProject
-```
+### Model specific settings
 
-Start the local development server with:
+Add the sidebar widget to a model by adding a **JSON field** and setting the presentation to **Model Deployment Links**:
 
-```bash
-yarn start
-```
+![](docs/plugin-instance-settings.jpg)
 
-The plugin will be served from [http://localhost:5000/](http://localhost:5000/). Insert this URL as the plugin [Entry point URL](https://www.datocms.com/docs/plugins/creating-a-new-plugin/).
+Enter the URL pattern for this model. You can add model field values using `{ fieldKey }`. The current locale is also available using `{ locale }`.
 
-## Publishing
+This results in **model-specific URLs** in the sidebar of your content page:
 
-Before publishing this plugin, make sure:
+![](docs/sidebar-widget-links.jpg)
 
-* you've properly described any configuration parameters in this README file;
-* you've properly compiled this project's `package.json` following the [official rules](https://www.datocms.com/docs/plugins/publishing/);
-* you've added a cover image (`cover.png`) and a preview GIF (`preview.gif`) into the `docs` folder.
+---
 
-When everything's ready, just run:
+## Contributing
 
-```
-yarn publish
-```
+See [contributing.md](contributing.md).
 
 ## Credits
 
-* Scaffolded using [DatoCMS plugin Yeoman generator](https://github.com/datocms/generator-datocms-plugin)
+Scaffolded using [DatoCMS plugin Yeoman generator](https://github.com/datocms/generator-datocms-plugin).
 
 ## License
 
-[MIT Licensed](license) by [De Voorhoede](https://www.voorhoede.nl)
+[MIT Licensed](license) by [De Voorhoede](https://www.voorhoede.nl).

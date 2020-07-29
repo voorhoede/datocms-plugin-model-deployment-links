@@ -1,12 +1,11 @@
 {
-  "name": "datocms-plugin-preview-links",
+  "name": "datocms-plugin-model-deployment-links",
   "version": "1.0.0",
-  "private": true,
-  "homepage": "https://github.com/voorhoede/datocms-plugin-preview-links",
-  "description": "Sidebar widget with configurable links to preview a specific item",
+  "homepage": "https://github.com/voorhoede/datocms-plugin-model-deployment-links",
+  "description": "Sidebar widget with links to deployments (build triggers) per model with configurable url path (e.g. `/{locale}/blog/{slug}`)",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --port 5000",
+    "dev": "NODE_ENV=development webpack-dev-server --port 5000",
     "build": "NODE_ENV=production webpack --progress",
     "addToProject": "yo datocms-plugin:add-to-project",
     "prepublishOnly": "rimraf lib dist && mkdir dist && npm run build",
@@ -18,7 +17,10 @@
     "datocms-plugin",
     "sidebar",
     "json-field",
-    "preview links"
+    "preview links",
+    "deployment links",
+    "content links",
+    "model URLs"
   ],
   "files": [
     "dist",
@@ -28,8 +30,8 @@
   "license": "MIT",
   "datoCmsPlugin": {
     "title": "Preview Links",
-    "previewImage": "docs/preview.gif",
-    "coverImage": "docs/cover.png",
+    "previewImage": "docs/preview.jpg",
+    "coverImage": "docs/cover.jpg",
     "entryPoint": "dist/index.html",
     "pluginType": "sidebar",
     "fieldTypes": [
@@ -51,7 +53,7 @@
           "type": "string",
           "required": true,
           "default": false,
-          "hint": "The DatoCMS API read-only token to use to fetch the publish environments"
+          "hint": "Enter your DatoCMS API read-only token used to fetch this deployment environments (build triggers)."
         }
       ],
       "instance": [
@@ -61,7 +63,7 @@
           "type": "string",
           "required": true,
           "default": "/{ locale }/articles/{ slug }",
-          "hint": "{ fieldKey } will be replaced with item values, { locale } is currently edited locale"
+          "hint": "Enter the URL pattern for this model. You can add model field values using { fieldKey }. The current locale is also available using { locale }."
         }
       ]
     }
