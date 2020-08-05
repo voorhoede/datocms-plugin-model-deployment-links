@@ -1,6 +1,6 @@
 {
   "name": "datocms-plugin-model-deployment-links",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "homepage": "https://github.com/voorhoede/datocms-plugin-model-deployment-links",
   "description": "Sidebar widget with links to deployments (build triggers) per model with configurable url path (e.g. `/{locale}/blog/{slug}`)",
   "main": "index.js",
