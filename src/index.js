@@ -13,6 +13,14 @@ function getBuildTriggers({ datoApiToken }) {
   }).then(response => response.json()).then(({ data }) => data);
 }
 
+function toggleAttribute(element, attribute) {
+  if (element.hasAttribute(attribute)) {
+    element.removeAttribute(attribute);
+  } else {
+    element.setAttribute(attribute, true);
+  }
+}
+
 function createList() {
   const list = document.createElement('ul');
   list.classList.add('preview-links');
@@ -32,13 +40,23 @@ function createLink({ text, url }) {
 function createItem({ text, url }) {
   const item = document.createElement('li');
   const button = document.createElement('button');
+  const canvas = document.createElement('canvas');
+  const link = createLink({ text, url });
+
   button.type = 'button';
   button.textContent = 'QR code';
-  // eslint-disable-next-line no-alert
-  button.addEventListener('click', () => alert('show/hide QR code'));
-  const link = createLink({ text, url });
+  canvas.setAttribute('hidden', true);
+  button.addEventListener('click', () => {
+    toggleAttribute(canvas, 'hidden');
+    button.classList.toggle('is-active');
+  });
+  window.QRCode.toCanvas(canvas, url, (error) => {
+    if (error) console.error(error);
+  });
+
   item.appendChild(button);
   item.appendChild(link);
+  item.appendChild(canvas);
   return item;
 }
 
@@ -47,7 +65,6 @@ function createItem({ text, url }) {
  */
 function startPlugin(plugin) {
   plugin.startAutoResizer();
-  console.clear();
 
   const { urlPattern } = plugin.parameters.instance;
   const { datoApiToken } = plugin.parameters.global;
@@ -73,17 +90,6 @@ function startPlugin(plugin) {
     });
   }
 
-  function showQrCode(text) {
-    const canvas = document.createElement('canvas');
-    canvas.style = 'display:block; border:1px solid red; width:200px; height:200px;';
-    list.appendChild(canvas);
-    window.QRCode.toCanvas(canvas, text, (error) => {
-      if (error) {
-        console.error(error);
-      }
-    });
-  }
-
   function updateLinks() {
     list.innerHTML = '';
     gettingBuildTriggers.then((triggers) => {
@@ -95,7 +101,6 @@ function startPlugin(plugin) {
           : `${baseUrl}${urlPath}`;
         const item = createItem({ url, text });
         list.appendChild(item);
-        showQrCode(url);
       });
     });
   }

@@ -16,9 +16,30 @@
   background-color: white;
   background-size: 1em;
 }
+.preview-links button:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--semi-transparent-accent-color);
+}
+.preview-links button:hover {
+  background-color: var(--semi-transparent-accent-color);
+}
+.preview-links button.is-active {
+  background-color: var(--semi-transparent-accent-color);
+}
+
+.preview-links canvas {
+  width: 100% !important;
+  height: auto !important;
+  border-bottom: 1px solid #f0f0f0;
+}
 
 .preview-links a {
   display: inline-block;
+  text-decoration: none;
+}
+.preview-links a:focus,
+.preview-links a:hover {
+  text-decoration: underline;
 }
 .preview-links a::after {
   speak: none;
