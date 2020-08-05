@@ -2,10 +2,45 @@
   background-color: white;
 }
 
-.preview-links a {
-  display: block;
+.preview-links button {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: .5em;
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 2px;
+  color: transparent;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAACtUlEQVR4Xu2d0W7jMAwEnf//6PalCBKjNiPubiXX09eWFDNDSpZzwD02fpYi8FiqGorZELJYEyAEIYsRWKycswn5WqzWfTnVdF+yfoTM67pf2SMEITYCbFk2lJ5ECPFwtGVBiA2lJxFCPBxtWRCyQ1kBUclX94hqfTV+Sv3KY28FZMoHelkUIaqBXbwKVI1XP05rfSZExX4cjxDzhKmqEIIQtYfO41sdxqGek4IQ88jPBnrJ9ZNPWZcEYtzyWp8fIebHVlUoQhDyJFC9emmNvNqhs+OZECaECfkhYP9HDmw5gYttcstSr4yzz5Ap9SNExW4+gxCCkI8JsGWZ32V9TP7gDxGCELWH3uJbDcUZYnWAkDOcrQ41+mmtr0yIsfZWKvVi2lrUGGS/qRtra6VCSAtbLgghObatzAhpYcsFISTHtpUZIS1suSCE5Ni2Mt9OSIsSQRqBqsu07EQPE0DIMLJsAEKyfIezI2QYWTYAIVm+w9kRMowsG4CQLN/h7HwfcoysatbqC6hKBt+HVIR2v0fIFYC91MiErNDBCFlsj0cIQp4E1D1y8EgY/vMphy4TwoR8PCFVhw63/C6gmtD0+lPqVy6GaSAIWaxDEYIQdZd6i281FFuW1QFCcjj1zEyIztCaASFWnHqy5YS0Chq4CVeP3en1VWX270NmA5m9PkLMr99VoQhByHkPqB129XgmhAlhQtQpOIvnKcs8YaqsPxeiFpy+R1Rn2JT6//PLRVUoQsyv/xGithRCttP/vvuSHWZ8F6b2V4sfZ4iK/TgeIeYtT1WFkLsLUTtIja/uEa0ONZ5BrfWVM0QFqsYjRCVojkeIGaiaDiEqQXM8QsxA1XQIUQma4xFiBqqmu50QFRjxDQJVlzVSEqIQQIhCLxCLkABUJSVCFHqBWIQEoCopEaLQC8R+A/fNKHQ6ulocAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  background-size: 1em;
+}
+.preview-links button:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--semi-transparent-accent-color);
+}
+.preview-links button:hover {
+  background-color: var(--semi-transparent-accent-color);
+}
+.preview-links button.is-active {
+  background-color: var(--semi-transparent-accent-color);
 }
 
+.preview-links canvas {
+  width: 100% !important;
+  height: auto !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.preview-links a {
+  display: inline-block;
+  text-decoration: none;
+}
+.preview-links a:focus,
+.preview-links a:hover {
+  text-decoration: underline;
+}
 .preview-links a::after {
   speak: none;
   display: inline-block;

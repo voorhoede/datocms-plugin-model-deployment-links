@@ -13,11 +13,19 @@ function getBuildTriggers({ datoApiToken }) {
   }).then(response => response.json()).then(({ data }) => data);
 }
 
-function createContainer() {
-  const container = document.createElement('div');
-  container.classList.add('preview-links');
-  document.body.appendChild(container);
-  return container;
+function toggleAttribute(element, attribute) {
+  if (element.hasAttribute(attribute)) {
+    element.removeAttribute(attribute);
+  } else {
+    element.setAttribute(attribute, true);
+  }
+}
+
+function createList() {
+  const list = document.createElement('ul');
+  list.classList.add('preview-links');
+  document.body.appendChild(list);
+  return list;
 }
 
 function createLink({ text, url }) {
@@ -27,6 +35,29 @@ function createLink({ text, url }) {
   link.rel = 'noopener';
   link.target = '_blank';
   return link;
+}
+
+function createItem({ text, url }) {
+  const item = document.createElement('li');
+  const button = document.createElement('button');
+  const canvas = document.createElement('canvas');
+  const link = createLink({ text, url });
+
+  button.type = 'button';
+  button.textContent = 'QR code';
+  canvas.setAttribute('hidden', true);
+  button.addEventListener('click', () => {
+    toggleAttribute(canvas, 'hidden');
+    button.classList.toggle('is-active');
+  });
+  window.QRCode.toCanvas(canvas, url, (error) => {
+    if (error) console.error(error);
+  });
+
+  item.appendChild(button);
+  item.appendChild(link);
+  item.appendChild(canvas);
+  return item;
 }
 
 /**
@@ -42,7 +73,7 @@ function startPlugin(plugin) {
   const paramMatches = urlPattern.match(paramPattern) || [];
   const paramFields = paramMatches.map(param => param.substring(1, param.length - 2).trim());
 
-  const container = createContainer();
+  const list = createList();
   const gettingBuildTriggers = getBuildTriggers({ datoApiToken });
 
   function getFieldValue(fieldKey) {
@@ -60,7 +91,7 @@ function startPlugin(plugin) {
   }
 
   function updateLinks() {
-    container.innerHTML = '';
+    list.innerHTML = '';
     gettingBuildTriggers.then((triggers) => {
       const urlPath = getUrlPath();
       triggers.forEach((trigger) => {
@@ -68,8 +99,8 @@ function startPlugin(plugin) {
         const url = (baseUrl.endsWith('/') && urlPath.startsWith('/'))
           ? `${baseUrl}${urlPath.substr(1)}`
           : `${baseUrl}${urlPath}`;
-        const link = createLink({ url, text });
-        container.appendChild(link);
+        const item = createItem({ url, text });
+        list.appendChild(item);
       });
     });
   }

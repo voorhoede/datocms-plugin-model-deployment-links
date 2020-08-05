@@ -52,6 +52,7 @@ module.exports = {
       tags: [
         'https://unpkg.com/datocms-plugins-sdk@0.0.9/dist/sdk.js',
         'https://unpkg.com/datocms-plugins-sdk@0.0.9/dist/sdk.css',
+        'https://unpkg.com/qrcode@1.4.4/build/qrcode.min.js',
       ],
     }),
   ].filter(Boolean),
