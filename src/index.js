@@ -39,8 +39,8 @@ function startPlugin(plugin) {
   const { datoApiToken } = plugin.parameters.global;
   const isMultiLocale = (plugin.site.attributes.locales.length > 1);
   const paramPattern = /({\s?[0-9a-zA-Z]+\s?})/g;
-  const paramFields = urlPattern.match(paramPattern)
-    .map(param => param.substring(1, param.length - 2).trim());
+  const paramMatches = urlPattern.match(paramPattern) || [];
+  const paramFields = paramMatches.map(param => param.substring(1, param.length - 2).trim());
 
   const container = createContainer();
   const gettingBuildTriggers = getBuildTriggers({ datoApiToken });

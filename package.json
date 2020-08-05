@@ -29,7 +29,7 @@
   "author": "De Voorhoede (https://www.voorhoede.nl/)",
   "license": "MIT",
   "datoCmsPlugin": {
-    "title": "Preview Links",
+    "title": "Model Deployment Links",
     "previewImage": "docs/preview.jpg",
     "coverImage": "docs/cover.jpg",
     "entryPoint": "dist/index.html",
