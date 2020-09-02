@@ -40,14 +40,6 @@
     "parameters": {
       "global": [
         {
-          "id": "developmentMode",
-          "label": "Development mode",
-          "type": "boolean",
-          "required": true,
-          "default": false,
-          "hint": "Shows debug messages in console"
-        },
-        {
           "id": "datoApiToken",
           "label": "DatoCMS API Token",
           "type": "string",
@@ -63,7 +55,7 @@
           "type": "string",
           "required": true,
           "default": "/{ locale }/articles/{ slug }",
-          "hint": "Enter the URL pattern for this model. You can add model field values using { fieldKey }. The current locale is also available using { locale }."
+          "hint": "Enter the URL pattern for this model. You can add model field values using { fieldKey }. The item ID and item model API key are available using { id } and { modelApiKey }. The current locale is available using { locale }."
         }
       ]
     }

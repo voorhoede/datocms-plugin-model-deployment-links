@@ -83,10 +83,16 @@ function startPlugin(plugin) {
   function getUrlPath() {
     return urlPattern.replace(paramPattern, (param) => {
       const paramName = param.substring(1, param.length - 2).trim();
-      const paramValue = (paramName === 'locale')
-        ? plugin.locale
-        : getFieldValue(paramName);
-      return paramValue;
+      switch (paramName) {
+        case 'id':
+          return plugin.itemId;
+        case 'locale':
+          return plugin.locale;
+        case 'modelApiKey':
+          return plugin.itemType.attributes.api_key;
+        default:
+          return getFieldValue(paramName);
+      }
     });
   }
 
