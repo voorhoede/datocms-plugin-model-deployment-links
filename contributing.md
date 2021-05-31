@@ -5,7 +5,7 @@
 Install all the project dependencies with:
 
 ```bash
-yarn install
+yarn
 ```
 
 Add this plugin in development mode to one of your DatoCMS project with:
