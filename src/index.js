@@ -69,7 +69,7 @@ function startPlugin(plugin) {
   const { urlPattern } = plugin.parameters.instance;
   const { datoApiToken } = plugin.parameters.global;
   const isMultiLocale = (plugin.site.attributes.locales.length > 1);
-  const paramPattern = /({\s?[0-9a-zA-Z]+\s?})/g;
+  const paramPattern = /({\s?[0-9a-zA-Z_]+\s?})/g;
   const paramMatches = urlPattern.match(paramPattern) || [];
   const paramFields = paramMatches.map(param => param.substring(1, param.length - 2).trim());
 

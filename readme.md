@@ -46,7 +46,7 @@ Add the sidebar widget to a model by adding a **JSON field** and setting the pre
 
 ![](docs/plugin-instance-settings.jpg)
 
-Enter the URL pattern for this model. You can add model field values using `{ fieldKey }`. The item ID and item model API key are available using `{ id }` and `{ modelApiKey }`. The current locale is available using `{ locale }` (*note: localization must be enabled on the field* to make the `locale` value available).
+Enter the URL pattern for this model. You can add model field values using `{ field_key }`. The item ID and item model API key are available using `{ id }` and `{ modelApiKey }`. The current locale is available using `{ locale }` (*note: localization must be enabled on the field* to make the `locale` value available).
 
 This results in **model-specific URLs** in the sidebar of your content page:
 
