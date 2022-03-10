@@ -103,7 +103,7 @@ function startPlugin(plugin) {
       triggers.forEach((trigger) => {
         const { name: text, frontend_url: baseUrl } = trigger.attributes;
         const url = (baseUrl.endsWith('/') && urlPath.startsWith('/'))
-          ? `${baseUrl}${urlPath.substr(1)}`
+          ? `${baseUrl}${urlPath.substring(1)}`
           : `${baseUrl}${urlPath}`;
         const item = createItem({ url, text });
         list.appendChild(item);
