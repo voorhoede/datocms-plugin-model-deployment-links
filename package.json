@@ -1,6 +1,6 @@
 {
   "name": "datocms-plugin-model-deployment-links",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "homepage": "https://github.com/voorhoede/datocms-plugin-model-deployment-links",
   "description": "Sidebar widget with links to deployments (build triggers) per model with configurable url path (e.g. `/{locale}/blog/{slug}`)",
   "main": "index.js",
@@ -31,7 +31,7 @@
   "datoCmsPlugin": {
     "title": "Model Deployment Links",
     "previewImage": "docs/preview.jpg",
-    "coverImage": "docs/cover.jpg",
+    "coverImage": "docs/cover.png",
     "entryPoint": "dist/index.html",
     "pluginType": "sidebar",
     "fieldTypes": [
@@ -45,7 +45,7 @@
           "type": "string",
           "required": true,
           "default": false,
-          "hint": "Enter your DatoCMS API read-only token used to fetch this deployment environments (build triggers)."
+          "hint": "Enter your DatoCMS API full-access token used to fetch this deployment environments (build triggers)."
         }
       ],
       "instance": [

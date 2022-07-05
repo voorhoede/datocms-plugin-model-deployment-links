@@ -2,7 +2,7 @@
 
 **This DatoCMS plugin adds a sidebar widget with links to deployments (build triggers) _per model with configurable url path_ (e.g. `/{ locale }/blog/{ slug }`), so your editors can easily view the item they are editing.**
 
-![](docs/sidebar-widget-links.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/sidebar-widget-links.jpg)
 
 ## Features
 
@@ -14,15 +14,15 @@
 
 By default DatoCMS already links to your depoyment environments in the main menu:
 
-![](docs/deployment-links-in-main-menu.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/deployment-links-in-main-menu.jpg)
 
 These items link to the **Website frontend URL** you entered for the related build trigger:
 
-![](docs/build-trigger-settings.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/build-trigger-settings.jpg)
 
 This plugin adds links to **model-specific URLs** on those websites:
 
-![](docs/sidebar-widget-links.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/sidebar-widget-links.jpg)
 
 The sidebar shows a link for each deployment environment. The URL is based on the form values of the item being edited and optionally the current locale.
 
@@ -34,23 +34,23 @@ First add this plugin via DatoCMS Settings > Plugins > Add (`/admin/plugins/new`
 
 ### Global plugin settings
 
-Then enter the DatoCMS API read-only token used to fetch this deployment environments (build triggers):
+Then enter the DatoCMS API full-access token used to fetch this deployment environments (build triggers):
 
-![](docs/global-plugin-settings.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/global-plugin-settings.jpg)
 
-This token is available via Settings > API Tokens > Read-only API token (`/admin/access_tokens/`).
+This token is available via Settings > API Tokens > Full-access API token (`/admin/access_tokens/`).
 
 ### Model specific settings
 
 Add the sidebar widget to a model by adding a **JSON field** and setting the presentation to **Model Deployment Links**:
 
-![](docs/plugin-instance-settings.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/plugin-instance-settings.jpg)
 
 Enter the URL pattern for this model. You can add model field values using `{ field_key }`. The item ID and item model API key are available using `{ id }` and `{ modelApiKey }`. The current locale is available using `{ locale }` (*note: localization must be enabled on the field* to make the `locale` value available).
 
 This results in **model-specific URLs** in the sidebar of your content page:
 
-![](docs/sidebar-widget-links.jpg)
+![](https://github.com/voorhoede/datocms-plugin-model-deployment-links/raw/master/docs/sidebar-widget-links.jpg)
 
 ---
 
