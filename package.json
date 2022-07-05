@@ -31,7 +31,7 @@
   "datoCmsPlugin": {
     "title": "Model Deployment Links",
     "previewImage": "docs/preview.jpg",
-    "coverImage": "docs/cover.jpg",
+    "coverImage": "docs/cover.png",
     "entryPoint": "dist/index.html",
     "pluginType": "sidebar",
     "fieldTypes": [
@@ -45,7 +45,7 @@
           "type": "string",
           "required": true,
           "default": false,
-          "hint": "Enter your DatoCMS API read-only token used to fetch this deployment environments (build triggers)."
+          "hint": "Enter your DatoCMS API full-access token used to fetch this deployment environments (build triggers)."
         }
       ],
       "instance": [
